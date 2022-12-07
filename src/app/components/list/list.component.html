@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let pokemon of pokemons; let i = index" class="col-md-6">
+      <div class="card mb-3" [routerLink]="['/view', pokemon.name]">
+        <div class="card-body">
+          <img [src]="pokemon.sprites.front_default" alt="Pokemon" />
+          <div class="row">
+            <div class="col-7 col-sm-8">
+              <h3 class="card-title">{{ pokemon.name }}</h3>
+              <span class="">
+                {{ pokemon.types[0].type.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a routerLink="Next page" [queryParams]="{ page: 'number' }">Next Page</a>
+  </div>
+</div>
