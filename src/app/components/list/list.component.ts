@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+// import { Route, Routerlink } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -16,10 +16,17 @@ export class ListComponent implements OnInit {
 
   constructor(private pokemonService: PokemonService) {}
   ngOnInit(): void {
+    this.getPokemons();
+  }
+
+  //getPokemons
+
+  getPokemons() {
     this.pokemonService
-      .getPokemons(this.pokemons.length, this.page + 0)
+      .getPokemons(50, this.page)
       .subscribe((response: any) => {
         this.totalPokemons = response.count;
+
         response.results.forEach((result: { name: any }) =>
           this.pokemonService
             .getMoreData(result.name)

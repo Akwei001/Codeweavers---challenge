@@ -26,9 +26,9 @@ export class ViewComponent implements OnInit {
     };
 
     this.pokemonService.getPokemons(1, 1).subscribe((response: any) => {
-      response.results.forEach((result: { name: any }) =>
+      response.results.forEach((result: { this: any }) =>
         this.pokemonService
-          .getMoreData(result.name)
+          .getMorePokemon()
           .subscribe((uniqueResponse: any) => {
             this.vpokemons.push(uniqueResponse);
             console.log(this.vpokemons);

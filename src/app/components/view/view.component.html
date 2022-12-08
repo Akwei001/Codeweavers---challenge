@@ -3,7 +3,7 @@
     <div class="mt-2">
       {{ poke | json }}
       <span *ngFor="let pokemon of vpokemons; let i = index" class="">
-        {{ pokemon.abilities | json }}
+        {{ pokemon.name }}
       </span>
     </div>
   </div>

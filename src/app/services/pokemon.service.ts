@@ -13,10 +13,8 @@ export class PokemonService {
     return this.httpClient.get(`${this.url}?limit=${limit}&offset=${offset}`);
   }
 
-  getMorePokemon(limit: number, offset: number) {
-    return this.httpClient.get(
-      `${this.url}?limit=${limit + 50}&offset=${offset + 50}`
-    );
+  getMorePokemon(this: any) {
+    return this.httpClient.get(`${this.url}`);
   }
 
   //Get more pokemon data

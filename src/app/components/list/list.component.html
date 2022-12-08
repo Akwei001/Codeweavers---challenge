@@ -15,6 +15,12 @@
         </div>
       </div>
     </div>
-    <a routerLink="Next page" [queryParams]="{ page: 'number' }">Next Page</a>
+    <button
+      [routerLink]="['/app-list']"
+      [queryParams]="{ page: this.page + 1 }"
+      (click)="getPokemons()"
+    >
+      Next Page
+    </button>
   </div>
 </div>
